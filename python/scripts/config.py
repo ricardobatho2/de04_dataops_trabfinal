@@ -7,7 +7,6 @@ data_path = os.path.dirname(local_path)
 configs = {
     "meta_path": f"{local_path}/python/scripts/metadado.xlsx",
     "raw_path": f"{local_path}/python/scripts/data/raw/raw_",
-    # "meta_path": f"{local_path}/metadado.xlsx",
     # "raw_path": f"{local_path}/data/raw/raw_",
     }
 

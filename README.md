@@ -1,56 +1,33 @@
 # Documentação do Projeto
 
-Este repositório contém o projeto da disciplina de DataOps que implementa um pipeline de dados
+Esse projeto foi desevolvido para uma atividade de DataOps criando uma pipeline.
 
-![alt text](imgs/pipeline_.png)
+### Para pegar o código
 
-
-## Pré-requisitos
-
-Antes de começar, certifique-se de ter o Git e o Docker instalados no seu sistema.
-
-- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- [Docker](https://docs.docker.com/engine/install/)
-- [Docker Composer](https://docs.docker.com/compose/install/)
-
-## Como Usar (Linux)
-
-### Clonar o Repositório
-
-1. Abra o terminal ou o prompt de comando.
-
-2. Navegue até o diretório onde deseja clonar o repositório.
-
-3. Execute o seguinte comando:
+1. Execute o comando no cmd:
 
     ```
-    git clone https://github.com/cristianefleal/de-dataops.git
+    git clone https://github.com/vitor56dantas/de04_dataops_trabfinal.git
     ```
 
-### Configurar e executar o docker compose
+### Para rodar o código
 
-4. Navegue até o diretório raiz do projeto após clonar o repositório:
 
-    ```
-    cd de-dataops
-    ```
-5. Crie o arquivo .env de acordo com a estrutura de .env.local:
+1. Vá até o diretório raiz do projeto:
 
     ```
-    cp .env.local .env
+    cd de04_dataops_trabfinal
     ```
-6. Edite o arquivo .env atribuindo valor às variáveis:
+2. Crie o arquivo .env de acordo e atribua às variáveis com a estrutura:
 
-    ``` 
+    ```
     URL=
     MYSQL_DATABASE=
     MYSQL_ROOT_PASSWORD=
     MYSQL_USER=
-    ```
 
-7. Execute o seguinte comando para inicializar os serviços:
+3. Execute o seguinte comando para inicializar os serviços:
 
     ```
     docker compose up
     ```
-

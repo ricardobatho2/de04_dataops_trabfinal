@@ -15,13 +15,13 @@ load_dotenv()
 class Saneamento:
     """
     Class Saneamento
-    Outputs: Realiza o tratamento e limpeza dos dados
+    Resultado > Aqui é realizado o tratamento de dados
     """
 
     def __init__(self, data, configs):
         """
         Função init
-        Outputs: configs
+        Resultado > configs
         """
         self.data = data
         self.metadado =  pd.read_excel(configs["meta_path"])
@@ -33,7 +33,7 @@ class Saneamento:
     def select_rename(self):
         """
         Função select_rename
-        Outputs: Renomeia colunas
+        Resultado > Renomeia colunas
         """
         self.data = self.data.loc[:, self.colunas]
         for i in range(self.len_cols):
@@ -45,7 +45,7 @@ class Saneamento:
     def tipagem(self):
         """
         Função tipagem
-        Outputs: Faz a tipagem das colunas
+        Resultado > Faz a tipagem das colunas
         """
         for col in self.colunas_new:
             tipo = self.metadado.loc[self.metadado['nome'] == col]['tipo'].item()
@@ -59,8 +59,8 @@ class Saneamento:
 
     def trata_valores(self):
         """
-        Função remove caracteres especiais e transforma para lowercase
-        Outputs: Remove os caracteres especiais de uma string
+        Função trata_valores
+        Resultado > Remove os caracteres especiais de uma string e apresenta em lowercase
         """
         try:
             self.data = self.data.map(lambda x: x.lower() if isinstance(x, str) else x)
@@ -73,7 +73,7 @@ class Saneamento:
     def save_work(self):
         """
         Função save_work
-        Outputs: Salva as colunas e os dados já formatados para o sql
+        Resultado > Salva as colunas e os no sql
         """
         try:
             self.data['load_date'] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
@@ -95,7 +95,7 @@ class Saneamento:
 def error_handler(exception_error, stage):
     """
     Função error_handler
-    Outputs: Trata erro
+    Resultado > Trata erro
     """
 
     log = [stage, type(exception_error).__name__, exception_error,datetime.now()]

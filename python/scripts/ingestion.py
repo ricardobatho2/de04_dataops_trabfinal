@@ -1,4 +1,4 @@
-"Script de ingestão e preparação - projeto dataops MBADE04"
+"Script de ingestão e preparação - Projeto DataOps"
 
 import os
 import uuid
@@ -14,7 +14,7 @@ import utils
 
 config_file = configs
 load_dotenv()
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 def ingestion():
     """
@@ -37,7 +37,7 @@ def ingestion():
         utils.error_handler(key_error, 'read_api')
 
     df = pd.json_normalize(data)
-    df['load_date'] = datetime.now().strftime("%H:%M:%S")
+    file = df['load_date'] = datetime.now().strftime("%H:%M:%S")
     file = f"{config_file['raw_path']}{str(uuid.uuid4())}.csv"
     df.to_csv(file, sep=";", index=False)
     return file
@@ -46,7 +46,7 @@ def preparation(file):
     """
     Função de preparação dos dados: renomeia, tipagem, normaliza strings
     Arguments: file -> nome do arquivo raw
-    Outputs: Salva base limpa em local específico
+    Resultado > Salva a base final
     """
 
     try:
